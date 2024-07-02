@@ -1,3 +1,4 @@
+# https://stackoverflow.com/questions/46941346/how-to-know-the-git-username-and-email-saved-during-configuration
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -8,10 +9,6 @@
 [user]
 	name = Grzegorz Bugaj
     email = gregbugaj@yahoo.com
-
-
-[includeIf "gitdir:~/dev/workflow/"]
-    path = .gitconfig-rms
 
 [commit]
 	template = ~/.gitmessage
@@ -24,7 +21,6 @@
 
 [push]
 	default = current
-
 
 [interactive]
     diffFilter = delta --color-only
@@ -41,6 +37,12 @@
 [diff]
     colorMoved = default
 
+# Version controlled .gitconfig shared on different systems
+[include]
+    path = ~/.gitconfig-specific
+
+# [includeIf "gitdir:~/dev/**"]
+#     path = ~/.gitconfig-work
 
 [alias]
 	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
