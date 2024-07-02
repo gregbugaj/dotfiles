@@ -1,0 +1,58 @@
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+    pager = delta
+
+
+[user]
+	name = Grzegorz Bugaj
+    email = gregbugaj@yahoo.com
+
+
+[includeIf "gitdir:~/dev/workflow/"]
+    path = .gitconfig-rms
+
+[commit]
+	template = ~/.gitmessage
+
+[credential]
+	helper = store
+
+[color]
+	ui = true
+
+[push]
+	default = current
+
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false
+    side-by-side = true
+    line-numbers = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+
+[alias]
+	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	f = fetch
+	s = status
+	co = checkout
+	pp = pull --prune --rebase
+	ggrep = grep --break --heading --line-number
+	continue = rebase --continue
+	abort = rebase --abort
+	fix = commit --fixup
+	who = shortlog -s --
+
+  	# list aliases
+  	la = "!git config -l | grep alias | cut -c 7-"
