@@ -22,6 +22,16 @@ main () {
   # tmux
   ln -fs $dir/tmux/tmux.conf ~/.tmux.conf
 
+  # neovim
+  ln -fs $dir/nvim-config ~/.config/nvim
+
+  # ensure that luarocks is installed
+  if ! command -v luarocks &> /dev/null; then
+    echo "luarocks not found, please install it"
+    exit 1
+  fi
+  
+
   trap - EXIT
 }
 
