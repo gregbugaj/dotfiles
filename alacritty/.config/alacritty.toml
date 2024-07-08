@@ -1,0 +1,32 @@
+[window]
+startup_mode = "Windowed"
+# decorations = "None"
+
+# opacity = 0.95
+
+# padding.x = 10
+# padding.y = 10
+
+blur = true
+decorations = "Buttonless"
+opacity = 0.95
+
+
+[selection]
+save_to_clipboard = true
+
+[window.dimensions]
+columns = 130
+lines = 45
+
+[window.padding]
+x = 10
+y = 10
+
+[scrolling]
+history = 10000
+
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Light" }
+size = 12.0

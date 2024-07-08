@@ -31,6 +31,17 @@ main () {
     exit 1
   fi
   
+  # check if starship is installed
+    if ! command -v starship &> /dev/null; then
+        echo "starship not found, please install it"
+    fi
+
+    ln -fs $dir/starship/starship.toml ~/.config/starship.toml
+    
+    # alacritty
+
+    mkdir -p ~/.config/alacritty
+    ln -fs $dir/alacritty/.config/alacritty.toml ~/.config/alacritty/alacritty.toml
 
   trap - EXIT
 }

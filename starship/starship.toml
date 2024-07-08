@@ -1,0 +1,178 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+# Make prompt a single line instead of two lines
+[line_break]
+disabled = true
+
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)" 
+
+
+format= """
+$directory$git_branch$git_status ${custom.git_time_since_last_commit} ${custom.git_username} 
+[└─λ](bold green) 
+"""
+
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+[username]
+style_user = "green bold"
+style_root = "black bold"
+format = " [$user]($style) ~ "
+disabled = true
+show_always = false
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration](bold yellow)"
+
+
+[directory]
+format = "[┌──](bold green) [$path]($style) "
+
+[git_branch]
+format = "on [$symbol$branch ]($style)"
+symbol = " "
+style = "bold purple"
+
+[git_commit]
+#format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "bold green"
+
+# https://starship.rs/config/
+[git_status]
+format ='([\[$all_status$ahead_behind\]]($style))'
+conflicted = "="
+ahead =	"⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count} "
+stashed = "$${count} "
+modified = "!${count} "
+#staged = "+${count} "
+staged = '[+$count](green) '
+renamed = "»${count} "
+deleted = "✘${count} "
+style =	"bold red"
+disabled = false
+
+
+[custom.git_time_since_last_commit]
+description = "Time since last commit"
+command = "git log -1 --pretty=format:'%cr' 2>/dev/null"
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
+
+# [custom.git_username]
+# command = "git config --get user.name"
+# when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+# description = "Displays the Git user.name"
+# style = "bold purple"
+
+
+[git_state]
+rebase = "REBASING"
+merge =	"MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style =	"bold yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+
+[hostname]
+ssh_only = true
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold #ea00d9"
+disabled = true
+
+
+
+[hg_branch]
+symbol = " "
+style =	"bold purple"
+format = "on [$symbol$branch]($style) "
+
+[memory_usage]
+format = " $symbol [${ram}( | ${ram_pct})]($style)"
+symbol = " "
+style = "bold dimmed green"
+
+[nodejs]
+format = " [$symbol$version]($style) "
+symbol = "⬢ "
+style = "bold green"
+disabled = false
+not_capable_style = "bold red"
+
+[status]
+format = "[$symbol$status]($style)"
+symbol = "✖"
+style = "bold red"
+disabled = true
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "👨‍💻"
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+threshold = 90
+style = "white"
+
+[aws]
+disabled = true
+format = "on [$symbol$profile]($style) "
+
+[docker]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+#format=' [$symbol($version )]($style)'
+# Custom format to include the virtual environment name
+format = ' [$symbol$version\($virtualenv\)]($style) '
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
+
