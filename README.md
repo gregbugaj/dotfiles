@@ -71,6 +71,11 @@ zoxide - Directory Jump
 sudo apt-get install zoxide
 ```
 
+lazygit - Git GUI 
+```shell
+sudo apt-get install lazygit
+```
+
 
 ## Install following fonts
 

@@ -9,7 +9,7 @@ startup_mode = "Windowed"
 
 blur = true
 decorations = "Buttonless"
-opacity = 0.95
+opacity = 1
 
 
 [selection]
@@ -28,5 +28,5 @@ history = 10000
 
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Light" }
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Light" }
 size = 12.0
