@@ -9,7 +9,7 @@ startup_mode = "Windowed"
 
 blur = true
 decorations = "Buttonless"
-opacity = 0.95
+opacity = 1
 
 
 [selection]

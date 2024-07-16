@@ -71,6 +71,16 @@ zoxide - Directory Jump
 sudo apt-get install zoxide
 ```
 
+github cli
+```shell
+sudo apt-get install gh
+```
+
+Install extensions for copilot
+
+* https://github.com/github/gh-copilot
+* https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli#setting-up-aliases
+
 
 ## Install following fonts
 
