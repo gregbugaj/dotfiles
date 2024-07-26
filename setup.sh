@@ -16,6 +16,18 @@ set -o pipefail
 main () {
   dir=$(pwd)
 
+  # source nvm directly if the NVM_DIR exists
+  if [ -d "$NVM_DIR" ]; then
+    echo "NVM_DIR exists, sourcing nvm directly"
+    source "$NVM_DIR/nvm.sh"
+  fi
+  nvm --version
+
+  if ! command -v nvm &> /dev/null; then
+    echo "nvm not found, please install it from https://github.com/nvm-sh/nvm"
+    exit 1
+  fi
+
   # git
   ln -fs $dir/git/gitconfig ~/.gitconfig
 
