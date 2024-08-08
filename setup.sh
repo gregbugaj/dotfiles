@@ -16,10 +16,30 @@ set -o pipefail
 main () {
   dir=$(pwd)
 
+  # source nvm directly if the NVM_DIR exists
+  if [ -d "$NVM_DIR" ]; then
+    echo "NVM_DIR exists, sourcing nvm directly"
+    source "$NVM_DIR/nvm.sh"
+  fi
+  nvm --version
+
+  if ! command -v nvm &> /dev/null; then
+    echo "nvm not found, please install it from https://github.com/nvm-sh/nvm"
+    exit 1
+  fi
+
   # git
   ln -fs $dir/git/gitconfig ~/.gitconfig
 
   # tmux
+  # check if tmux tpm is installed
+  if [ ! -d ~/.tmux/plugins/tpm ]; then
+    echo "tpm not found, installing it"
+    mkdir -p ~/.tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+    
+    
   ln -fs $dir/tmux/tmux.conf ~/.tmux.conf
 
   # neovim

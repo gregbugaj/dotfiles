@@ -3,7 +3,11 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
-    pager = delta
+    # pager = less -+F -+X
+    # pager = cat
+	# install via 'cargo install git-delta'
+	pager = delta
+    
 
 
 [user]
