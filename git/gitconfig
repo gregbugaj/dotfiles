@@ -62,3 +62,5 @@
 
   	# list aliases
   	la = "!git config -l | grep alias | cut -c 7-"
+[init]
+	defaultBranch = main
